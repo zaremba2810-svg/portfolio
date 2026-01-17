@@ -2,339 +2,346 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Портфолио AI‑креатора — Маша (MazaNeuroLab)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Портфолио AI-креатора — Маша (MazaNeuroLab)</title>
   <meta name="description" content="Кейсы, рекламные ролики и key visuals, созданные с помощью AI." />
+
   <style>
-    :root{--bg:#0b0d12;--card:#121624;--text:#e9eefc;--muted:#a9b3cc;--accent:#7c5cff;--border:rgba(255,255,255,.10)}
+    :root{
+      --bg:#0b0d12; --card:#121624; --text:#e9eefc; --muted:#a9b3cc;
+      --accent:#7c5cff; --border:rgba(255,255,255,.10);
+      --shadow: 0 14px 50px rgba(0,0,0,.35);
+      --radius:18px;
+    }
     *{box-sizing:border-box}
-    body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial; background:radial-gradient(1200px 600px at 20% 0%, rgba(124,92,255,.22), transparent 55%), var(--bg); color:var(--text)}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:
+        radial-gradient(1200px 600px at 20% 0%, rgba(124,92,255,.22), transparent 60%),
+        radial-gradient(900px 500px at 85% 10%, rgba(255,92,180,.16), transparent 55%),
+        radial-gradient(900px 500px at 50% 110%, rgba(92,255,214,.10), transparent 55%),
+        var(--bg);
+    }
     a{color:inherit}
     .wrap{max-width:1100px;margin:0 auto;padding:28px 18px 70px}
-    header{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:14px 0 10px}
+    header{
+      display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+      padding:14px 0 10px;
+    }
     .brand{display:flex;gap:12px;align-items:center}
-    .logo{width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg, rgba(124,92,255,.95), rgba(255,92,180,.75));box-shadow:0 12px 36px rgba(124,92,255,.25)}
+    .logo{
+      width:46px;height:46px;border-radius:14px;
+      background:linear-gradient(135deg, rgba(124,92,255,.95), rgba(255,92,180,.75));
+      box-shadow: 0 12px 36px rgba(124,92,255,.25);
+    }
     .hgroup h1{font-size:18px;margin:0;letter-spacing:.2px}
     .hgroup p{margin:4px 0 0;color:var(--muted);font-size:13px}
     .cta{display:flex;gap:10px;flex-wrap:wrap}
-    .btn{border:1px solid var(--border);background:rgba(255,255,255,.04);padding:10px 12px;border-radius:12px;text-decoration:none;font-size:13px;display:inline-flex;gap:8px;align-items:center}
-    .btn.primary{background:rgba(124,92,255,.18);border-color:rgba(124,92,255,.40)}
+    .btn{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      padding:10px 12px;
+      border-radius:12px;
+      text-decoration:none;
+      font-size:13px;
+      display:inline-flex;align-items:center;gap:8px;
+      transition:.15s ease;
+    }
     .btn:hover{transform:translateY(-1px)}
+    .btn.primary{
+      background:rgba(124,92,255,.18);
+      border-color:rgba(124,92,255,.40);
+    }
 
-    .hero{margin:18px 0 18px;padding:18px;border:1px solid var(--border);border-radius:18px;background:rgba(255,255,255,.03)}
-    .hero h2{margin:0 0 10px;font-size:22px}
+    .hero{
+      margin:18px 0 18px;
+      padding:18px;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.03);
+    }
+    .hero h2{margin:0 0 8px;font-size:22px}
     .hero p{margin:0;color:var(--muted);line-height:1.5}
     .meta{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
-    .chip{font-size:12px;color:var(--muted);border:1px solid var(--border);background:rgba(255,255,255,.03);padding:7px 10px;border-radius:999px}
+    .chip{
+      font-size:12px;color:var(--muted);
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      padding:7px 10px;border-radius:999px;
+    }
 
-    .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin:18px 0}
-    .search{flex:1;min-width:240px}
-    input{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text);padding:12px 12px;border-radius:14px;outline:none}
-    select{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--text);padding:12px 12px;border-radius:14px;outline:none}
+    .section{margin-top:18px}
+    .section h3{margin:0 0 12px;font-size:16px}
 
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
-    .card{grid-column:span 4;border:1px solid var(--border);border-radius:18px;background:rgba(255,255,255,.03);overflow:hidden;cursor:pointer;transition:.15s transform}
-    .card:hover{transform:translateY(-2px)}
-    .thumb{aspect-ratio:16/9;background:linear-gradient(135deg, rgba(255,255,255,.06), rgba(124,92,255,.10));display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:12px}
-    .card .body{padding:12px 12px 14px}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+    }
+    .card{
+      grid-column: span 4;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:rgba(255,255,255,.03);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+    }
+    .body{padding:12px 12px 14px}
     .title{margin:0 0 6px;font-size:14px}
     .desc{margin:0;color:var(--muted);font-size:12px;line-height:1.45}
     .tags{margin-top:10px;display:flex;gap:6px;flex-wrap:wrap}
-    .tag{font-size:11px;color:var(--muted);border:1px solid var(--border);padding:4px 8px;border-radius:999px}
+    .tag{
+      font-size:11px;color:var(--muted);
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      padding:4px 8px;border-radius:999px;
+    }
 
-    @media (max-width: 980px){.card{grid-column:span 6}}
-    @media (max-width: 560px){.card{grid-column:span 12}}
+    /* Video */
+    .media{
+      width:100%;
+      aspect-ratio: 16 / 9;
+      background:linear-gradient(135deg, rgba(255,255,255,.06), rgba(124,92,255,.08));
+      border-bottom:1px solid var(--border);
+    }
+    .media iframe{
+      width:100%;
+      height:100%;
+      display:block;
+      border:0;
+    }
 
-    /* Modal */
-    .modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;align-items:center;justify-content:center;padding:18px}
-    .modal.open{display:flex}
-    .panel{width:min(980px, 100%);border-radius:18px;border:1px solid var(--border);background:rgba(13,16,26,.96);box-shadow:0 30px 80px rgba(0,0,0,.5);overflow:hidden}
-    .panel header{padding:14px 14px 10px;border-bottom:1px solid var(--border)}
-    .panel .content{padding:14px}
-    .close{margin-left:auto}
-    .media{border:1px solid var(--border);border-radius:14px;overflow:hidden;background:rgba(255,255,255,.03)}
-    .media iframe,.media video,.media img{width:100%;height:auto;display:block}
-    .two{display:grid;grid-template-columns:1.25fr .75fr;gap:14px}
-    @media (max-width: 820px){.two{grid-template-columns:1fr}}
-    .k{color:var(--muted);font-size:12px}
-    .v{font-size:13px;line-height:1.45}
-    .kv{display:grid;gap:10px}
-    .kv .row{border:1px solid var(--border);background:rgba(255,255,255,.03);border-radius:14px;padding:10px 12px}
-    footer{margin-top:26px;color:var(--muted);font-size:12px}
+    /* Contacts */
+    .rows{display:grid;gap:10px}
+    .row{
+      display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;
+      padding:12px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+    }
+    .row b{font-size:13px}
+    .row span{color:var(--muted);font-size:12px}
+    .row a{text-decoration:none}
+    .row a:hover{text-decoration:underline}
+
+    footer{margin-top:26px;color:var(--muted);font-size:12px;text-align:center}
+
+    @media (max-width: 980px){
+      .card{grid-column: span 6}
+    }
+    @media (max-width: 560px){
+      .card{grid-column: span 12}
+      .wrap{padding:22px 14px 60px}
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <header>
       <div class="brand">
         <div class="logo" aria-hidden="true"></div>
         <div class="hgroup">
-          <h1>MazaNeuroLab • AI‑креатор (реклама / key visuals / анимация)</h1>
-          <p>Портфолио для выставки • QR ведёт сюда</p>
+          <h1>Портфолио AI-креатора — Маша (MazaNeuroLab)</h1>
+          <p>Рекламные ролики, key visuals, визуальные концепты для брендов</p>
         </div>
       </div>
+
       <div class="cta">
-        <!-- ЗАМЕНИТЕ ССЫЛКИ -->
-        <a class="btn primary" href="mailto:zaremba2810@gmail.com" target="_blank" rel="noreferrer">✉️ Написать</a>
-        <a class="btn" href="https://t.me/Mariya_inharmony" target="_blank" rel="noreferrer">💬 Telegram</a>
-        <a class="btn" href="https://drive.google.com/drive/folders/1c2GB8rkUHjmEuLTpLEQ0QR7MGiBdeGvg?usp=sharing" target="_blank" rel="noreferrer">📁 Google Drive</a>
+        <a class="btn primary" href="#projects">Проекты</a>
+        <a class="btn" href="#contacts">Контакты</a>
       </div>
     </header>
 
     <section class="hero">
-      <h2>Коротко обо мне</h2>
+      <h2>Коммерческие AI-кейсы для брендов</h2>
       <p>
-        Я создаю рекламные ролики и визуальные концепции с помощью AI: генерация key visuals, монтаж, стилизация, консистентность персонажей/продукта,
-        упаковка в формат под соцсети и медиаэкраны. Ниже — кейсы. Нажмите на карточку, чтобы открыть видео/материалы и описание.
+        Ниже — подборка роликов, созданных мной с помощью AI-инструментов (генерация, композитинг, монтаж).
+        Видео встроены прямо на страницу, без переходов.
       </p>
       <div class="meta">
-        <span class="chip">Сильный фокус: коммерция</span>
-        <span class="chip">Форматы: 9:16 • 16:9 • 1:1</span>
-        <span class="chip">Инструменты: Midjourney • Veo/Kling/Runway/Luma • CapCut/DaVinci</span>
+        <div class="chip">Фокус: FMCG / реклама / визуальные концепты</div>
+        <div class="chip">Форматы: 16:9 и Shorts</div>
+        <div class="chip">Инструменты: Midjourney / Veo / Kling / Luma / монтаж</div>
       </div>
     </section>
 
-    <div class="toolbar">
-      <div class="search"><input id="q" placeholder="Поиск по кейсам: бренд, формат, теги…" /></div>
-      <div><select id="filter"><option value="">Все теги</option></select></div>
-    </div>
+    <section id="projects" class="section">
+      <h3>Проекты (видео на странице)</h3>
 
-    <section id="grid" class="grid" aria-label="Кейсы"></section>
+      <div class="grid">
+        <!-- 1 -->
+        <article class="card">
+          <div class="media">
+            <iframe
+              src="https://www.youtube.com/embed/7nRj_1ipLOw"
+              title="Индана — приправа для картофеля"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="body">
+            <div class="title">Индана — приправа для картофеля</div>
+            <p class="desc">Рекламный AI-ролик</p>
+            <div class="tags"><span class="tag">YouTube</span><span class="tag">AI</span><span class="tag">Ad</span></div>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="card">
+          <div class="media">
+            <iframe
+              src="https://www.youtube.com/embed/RTum60Ikfxc"
+              title="Индана — специи для курицы"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="body">
+            <div class="title">Индана — специи для курицы</div>
+            <p class="desc">Рекламный AI-ролик</p>
+            <div class="tags"><span class="tag">YouTube</span><span class="tag">AI</span><span class="tag">Ad</span></div>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="card">
+          <div class="media">
+            <iframe
+              src="https://www.youtube.com/embed/EDXAopJaRvM"
+              title="Индана — новогодний ролик"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="body">
+            <div class="title">Индана — новогодний ролик</div>
+            <p class="desc">Визуальный концепт</p>
+            <div class="tags"><span class="tag">YouTube</span><span class="tag">Concept</span><span class="tag">Holiday</span></div>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="card">
+          <div class="media">
+            <iframe
+              src="https://www.youtube.com/embed/0lIOEETh1kE"
+              title="Мирель — Шоко Тоффи"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="body">
+            <div class="title">Мирель — Шоко Тоффи</div>
+            <p class="desc">Рекламный ролик (Shorts)</p>
+            <div class="tags"><span class="tag">YouTube</span><span class="tag">Shorts</span><span class="tag">Ad</span></div>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="card">
+          <div class="media">
+            <iframe
+              src="https://www.youtube.com/embed/DlkRFnzhm-I"
+              title="Русская Нива — рулеты"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="body">
+            <div class="title">Русская Нива — рулеты</div>
+            <p class="desc">Рекламный ролик (Shorts)</p>
+            <div class="tags"><span class="tag">YouTube</span><span class="tag">Shorts</span><span class="tag">Ad</span></div>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="card">
+          <div class="media">
+            <iframe
+              src="https://www.youtube.com/embed/eGazqEX6yaQ"
+              title="Хлебпром — новогоднее поздравление"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="body">
+            <div class="title">Хлебпром — новогоднее поздравление</div>
+            <p class="desc">Shorts</p>
+            <div class="tags"><span class="tag">YouTube</span><span class="tag">Shorts</span><span class="tag">Holiday</span></div>
+          </div>
+        </article>
+
+        <!-- 7 -->
+        <article class="card">
+          <div class="media">
+            <iframe
+              src="https://www.youtube.com/embed/EHbowg6DsV4"
+              title="Dr. Körner — хлебцы"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="body">
+            <div class="title">Dr. Körner — хлебцы</div>
+            <p class="desc">Рекламный AI-ролик (Shorts)</p>
+            <div class="tags"><span class="tag">YouTube</span><span class="tag">Shorts</span><span class="tag">AI</span></div>
+          </div>
+        </article>
+
+        <!-- 8 -->
+        <article class="card">
+          <div class="media">
+            <iframe
+              src="https://www.youtube.com/embed/cXq3whyET6M"
+              title="Dr. Körner — Шоко кранчи"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>
+          <div class="body">
+            <div class="title">Dr. Körner — Шоко кранчи</div>
+            <p class="desc">Рекламный AI-ролик (Shorts)</p>
+            <div class="tags"><span class="tag">YouTube</span><span class="tag">Shorts</span><span class="tag">AI</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contacts" class="section">
+      <h3>Контакты</h3>
+
+      <div class="rows">
+        <!-- ВАЖНО: тут ты можешь заменить на свои реальные ссылки/почту -->
+        <div class="row">
+          <div>
+            <b>Telegram</b><br />
+            <span>ссылка на контакт</span>
+          </div>
+          <a class="btn" href="#" target="_blank" rel="noopener">Открыть</a>
+        </div>
+
+        <div class="row">
+          <div>
+            <b>E-mail</b><br />
+            <span>твоя почта</span>
+          </div>
+          <a class="btn" href="mailto:your@email.com">Написать</a>
+        </div>
+
+        <div class="row">
+          <div>
+            <b>Google Drive</b><br />
+            <span>папка с работами / кейсами</span>
+          </div>
+          <a class="btn" href="#" target="_blank" rel="noopener">Открыть</a>
+        </div>
+      </div>
+    </section>
 
     <footer>
-      <div>© <span id="y"></span> MazaNeuroLab. Можно показывать на стенде: страница лёгкая, открывается с телефона по QR.</div>
+      © <span id="y"></span> MazaNeuroLab
     </footer>
   </div>
 
-  <!-- Modal -->
-  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Карточка кейса">
-    <div class="panel">
-      <header>
-        <div class="brand" style="gap:10px">
-          <div class="logo" aria-hidden="true" style="width:34px;height:34px;border-radius:12px"></div>
-          <div class="hgroup">
-            <h1 id="mTitle" style="font-size:15px;margin:0"></h1>
-            <p id="mSub" style="margin:4px 0 0"></p>
-          </div>
-        </div>
-        <a class="btn close" href="#" id="close">✕ Закрыть</a>
-      </header>
-      <div class="content">
-        <div class="two">
-          <div class="media" id="mMedia"></div>
-          <div class="kv" id="mKV"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <script>
-    // === 1) ЗАПОЛНИТЕ ДАННЫЕ КЕЙСОВ ===
-    // media.type: 'youtube' | 'vimeo' | 'mp4' | 'image' | 'link'
-    // media.url: ссылка на ролик/файл. Для YouTube/Vimeo — обычная ссылка, мы сами сконвертим в embed.
-    const CASES = [
-      {
-        title: 'Новогодний ролик — Индана',
-        subtitle: 'Праздничная AI‑реклама специй',
-        year: '2025',
-        tags: ['FMCG', 'AI video', 'Seasonal'],
-        description: 'Новогодний рекламный ролик для бренда Индана. Атмосферный визуал, фокус на продукте и праздничном настроении.',
-        media: { type: 'link', url: 'https://drive.google.com/file/d/1XF5pKJoxhl_JnUHqHz3eEIyvZY4kOS5B/view?usp=sharing' },
-        details: {
-          'Бренд': 'Индана',
-          'Роль': 'AI‑креатор • генерация визуалов • монтаж',
-          'Формат': '9:16 / 16:9'
-        }
-      },
-      {
-        title: 'Специи для курицы — Индана',
-        subtitle: 'Продуктовый AI‑ролик',
-        year: '2025',
-        tags: ['FMCG', 'AI video', 'Food'],
-        description: 'Рекламный ролик приправы для курицы. Чистый продуктовый кадр, акцент на вкусе и упаковке.',
-        media: { type: 'link', url: 'https://drive.google.com/file/d/1Tx2C6HV70PUNx_KJOVSKw2_JpiTXAdWY/view?usp=sharing' },
-        details: {
-          'Бренд': 'Индана',
-          'Роль': 'AI‑креатор • визуальная концепция',
-          'Формат': '9:16'
-        }
-      },
-      {
-        title: 'Приправа для картофеля — Индана',
-        subtitle: 'AI‑визуал для FMCG',
-        year: '2025',
-        tags: ['FMCG', 'AI video', 'Food'],
-        description: 'Короткий рекламный ролик приправы для картофеля с акцентом на текстуры и аппетитный образ.',
-        media: { type: 'link', url: 'https://drive.google.com/file/d/1_M85ts3HEDvB2gye-WVV-wWWzgmH89lL/view?usp=sharing' },
-        details: {
-          'Бренд': 'Индана',
-          'Роль': 'AI‑креатор • генерация контента',
-          'Формат': '9:16'
-        }
-      },
-      {
-        title: 'Реклама торта — Мирель',
-        subtitle: 'Десертная AI‑реклама',
-        year: '2025',
-        tags: ['FMCG', 'AI video', 'Dessert'],
-        description: 'Рекламный ролик торта для бренда Мирель. Эмоциональный визуал, фокус на премиальности продукта.',
-        media: { type: 'link', url: 'https://drive.google.com/file/d/1j1Hi_Kc7IhT6aY-Y5dd3n9Nulm5_mPUK/view?usp=sharing' },
-        details: {
-          'Бренд': 'Мирель',
-          'Роль': 'AI‑креатор • визуальный стиль',
-          'Формат': '9:16 / 16:9'
-        }
-      },
-      {
-        title: 'Рулеты — Русская Нива',
-        subtitle: 'AI‑ролик для FMCG',
-        year: '2025',
-        tags: ['FMCG', 'AI video'],
-        description: 'Продуктовый рекламный ролик рулетов бренда Русская Нива с акцентом на подачу и аппетитность.',
-        media: { type: 'link', url: 'https://drive.google.com/file/d/1W54-foyuE7rf7x3IlOlFlPxz2nStVs6M/view?usp=sharing' },
-        details: {
-          'Бренд': 'Русская Нива',
-          'Роль': 'AI‑креатор • монтаж',
-          'Формат': '9:16'
-        }
-      },
-      {
-        title: 'Новогодний ролик — Хлебпром',
-        subtitle: 'Праздничная бренд‑реклама',
-        year: '2025',
-        tags: ['FMCG', 'AI video', 'Seasonal'],
-        description: 'Новогодний рекламный ролик для компании Хлебпром. Бренд‑атмосфера и праздничный визуальный стиль.',
-        media: { type: 'link', url: 'https://drive.google.com/file/d/17IdKt-TyWF07kDYPh3RuJtrqFeNGojZv/view?usp=sharing' },
-        details: {
-          'Бренд': 'Хлебпром',
-          'Роль': 'AI‑креатор • визуальная концепция',
-          'Формат': '9:16 / 16:9'
-        }
-      },
-      {
-        title: 'Хлебцы — Dr. Körner',
-        subtitle: 'Коммерческий AI‑ролик',
-        year: '2025',
-        tags: ['FMCG', 'AI video', 'Healthy Food'],
-        description: 'Рекламный ролик хлебцев Dr. Körner с акцентом на пользу и чистый визуал.',
-        media: { type: 'link', url: 'https://drive.google.com/file/d/12QdoSJIa4tcScN3Jsnz4ahS-A2UyHOim/view?usp=drive_link' },
-        details: {
-          'Бренд': 'Dr. Körner',
-          'Роль': 'AI‑креатор • генерация и монтаж',
-          'Формат': '9:16'
-        }
-      },
-      {
-        title: 'Шоко кранчи — Dr. Körner',
-        subtitle: 'AI‑реклама сладкого продукта',
-        year: '2025',
-        tags: ['FMCG', 'AI video', 'Snack'],
-        description: 'Рекламный ролик продукта Шоко Кранчи. Динамичный визуал и акцент на вкусе.',
-        media: { type: 'link', url: 'https://drive.google.com/file/d/1DQcs4hQRKmqrw9-qiryPrU3lF5glieHf/view?usp=drive_link' },
-        details: {
-          'Бренд': 'Dr. Körner',
-          'Роль': 'AI‑креатор • визуальный продакшн',
-          'Формат': '9:16'
-        }
-      }
-    ];
-
-    // === 2) РЕНДЕР ===
-    const grid = document.getElementById('grid');
-    const q = document.getElementById('q');
-    const filter = document.getElementById('filter');
-    const modal = document.getElementById('modal');
-    const closeBtn = document.getElementById('close');
-    const mTitle = document.getElementById('mTitle');
-    const mSub = document.getElementById('mSub');
-    const mMedia = document.getElementById('mMedia');
-    const mKV = document.getElementById('mKV');
-    document.getElementById('y').textContent = new Date().getFullYear();
-
-    const allTags = Array.from(new Set(CASES.flatMap(c => c.tags))).sort();
-    for (const t of allTags){
-      const opt = document.createElement('option');
-      opt.value = t; opt.textContent = t; filter.appendChild(opt);
-    }
-
-    function toEmbed(media){
-      const url = media.url;
-      if (media.type === 'youtube'){
-        const id = (url.match(/(?:v=|youtu\.be\/)([A-Za-z0-9_-]{6,})/)||[])[1];
-        return `<iframe src="https://www.youtube.com/embed/${id}" title="YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-      }
-      if (media.type === 'vimeo'){
-        const id = (url.match(/vimeo\.com\/(\d+)/)||[])[1];
-        return `<iframe src="https://player.vimeo.com/video/${id}" title="Vimeo" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
-      }
-      if (media.type === 'mp4'){
-        return `<video controls playsinline src="${url}"></video>`;
-      }
-      if (media.type === 'image'){
-        return `<img src="${url}" alt="" />`;
-      }
-      // fallback: просто ссылка
-      return `<div style="padding:14px">
-        <div class="k">Ссылка на материалы</div>
-        <div class="v" style="margin-top:6px"><a class="btn primary" href="${url}" target="_blank" rel="noreferrer">Открыть</a></div>
-        <div class="k" style="margin-top:10px">Совет: для лучшего опыта загрузите ролик на YouTube (unlisted) или Vimeo и поставьте type youtube/vimeo.</div>
-      </div>`;
-    }
-
-    function cardThumb(c){
-      // можно заменить на реальный preview (image url), если добавите c.thumb
-      return `<div class="thumb">${c.year} • ${c.tags.slice(0,2).join(' · ')}</div>`;
-    }
-
-    function render(){
-      const term = q.value.trim().toLowerCase();
-      const ft = filter.value;
-      const items = CASES.filter(c => {
-        const hay = (c.title + ' ' + c.subtitle + ' ' + c.description + ' ' + c.tags.join(' ') + ' ' + Object.values(c.details||{}).join(' ')).toLowerCase();
-        const okTerm = !term || hay.includes(term);
-        const okTag = !ft || c.tags.includes(ft);
-        return okTerm && okTag;
-      });
-
-      grid.innerHTML = items.map((c, idx) => `
-        <article class="card" data-idx="${idx}">
-          ${cardThumb(c)}
-          <div class="body">
-            <h3 class="title">${c.title}</h3>
-            <p class="desc">${c.subtitle}</p>
-            <div class="tags">${c.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
-          </div>
-        </article>
-      `).join('') || `<div style="grid-column:span 12;color:var(--muted);padding:14px">Ничего не найдено.</div>`;
-
-      grid.querySelectorAll('.card').forEach(el => {
-        el.addEventListener('click', () => openCase(parseInt(el.dataset.idx,10)));
-      });
-    }
-
-    function openCase(idx){
-      const c = CASES[idx];
-      mTitle.textContent = c.title;
-      mSub.textContent = `${c.subtitle} • ${c.year}`;
-      mMedia.innerHTML = toEmbed(c.media);
-      const details = c.details || {};
-      mKV.innerHTML = `
-        <div class="row"><div class="k">Описание</div><div class="v">${c.description}</div></div>
-        ${Object.entries(details).map(([k,v]) => `<div class="row"><div class="k">${k}</div><div class="v">${v}</div></div>`).join('')}
-        <div class="row"><div class="k">Материалы</div><div class="v"><a class="btn" href="${c.media.url}" target="_blank" rel="noreferrer">Открыть ссылку</a></div></div>
-      `;
-      modal.classList.add('open');
-    }
-
-    function close(){ modal.classList.remove('open'); }
-
-    q.addEventListener('input', render);
-    filter.addEventListener('change', render);
-    closeBtn.addEventListener('click', (e)=>{e.preventDefault(); close();});
-    modal.addEventListener('click', (e)=>{ if (e.target === modal) close(); });
-    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
-
-    render();
+    document.getElementById("y").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
